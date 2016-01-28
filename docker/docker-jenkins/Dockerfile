@@ -11,7 +11,7 @@ COPY plugins.txt /usr/share/jenkins/plugins.txt
 RUN /usr/local/bin/plugins.sh /usr/share/jenkins/plugins.txt
 
 # Add configuration files
-ADD jenkins_home/* /var/jenkins_home
+# ADD jenkins_home/* /var/jenkins_home
 
 # Expose the jenkins dir as a volume
 VOLUME /var/jenkins_home
