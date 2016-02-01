@@ -1,4 +1,4 @@
 - project:
-	name: 'Canary Test'
-	jobs:
-		- 'Canary Test'
+    name: 'Canary Test'
+    jobs:
+        - 'Canary Test'
