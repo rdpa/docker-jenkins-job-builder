@@ -1,7 +1,7 @@
-FROM wouterla/docker-base
-MAINTAINER Wouter Lagerweij <wouter@lagerweij.com>
+FROM debian:latest
+MAINTAINER Reed Palmer <reed.d.palmer@gmail.com>
 
-RUN apt-get update && apt-get install -y\
+RUN sudo yum update && sudo yum install -y\
   python-setuptools \
   python-dev \
   libyaml-dev \
@@ -10,14 +10,8 @@ RUN apt-get update && apt-get install -y\
   python-pip \
   python-yaml
 
-RUN pip install jenkins-job-builder
+RUN sudo pip install jenkins-job-builder
 
-ADD jobs /jobs
-ADD config /config
-
-CMD while ! curl --output /dev/null --silent --head --fail http://jenkins:8080; \
+CMD while ! curl --output /dev/null --silent --head --fail http://localhost/; \
   do sleep 1; echo -n .; done \
-  && jenkins-jobs --conf /config/jenkins_jobs.ini update /jobs
-
-VOLUME /jobs
-VOLUME /config
+  && jenkins-jobs --conf ../../jenkins_jobs.ini update ../../
