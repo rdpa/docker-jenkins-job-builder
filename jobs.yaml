@@ -23,6 +23,7 @@
             - master
     triggers:
       - github
+      - pollscm
     builders:
       - deploy
 
