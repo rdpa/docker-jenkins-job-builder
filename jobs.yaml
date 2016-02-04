@@ -23,7 +23,8 @@
             - master
     triggers:
       - github
-      - pollscm
+      - pollscm:
+            cron: ""
     builders:
       - deploy
 
