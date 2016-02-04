@@ -17,7 +17,6 @@
     project-type: freestyle
     defaults: global
     builders:
-      
 
 - job:
     name: 'Canary Test'
