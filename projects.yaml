@@ -2,3 +2,7 @@
     name: 'Canary Test'
     jobs:
         - 'Canary Test'
+- project:
+    name: 'Build and Publish Docker Image'
+    jobs:
+        - 'Build and Publish Docker Image'
