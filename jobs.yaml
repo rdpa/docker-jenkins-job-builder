@@ -10,7 +10,7 @@
           docker rmi rdpa/jenkins-job-builder
           set -e
           docker build -t rdpa/jenkins-job-builder docker/jenkins-job-builder/.
-          docker run -d -name jjb rdpa/jenkins-job-builder
+          docker run -d --name jjb rdpa/jenkins-job-builder
 
 - job:
     name: 'Build and Deploy Docker JJB Image'

@@ -4,6 +4,6 @@
         - 'Canary Test'
 
 - project:
-    name: 'Build and Publish Docker JJB Image'
+    name: 'Build and Deploy Docker JJB Image'
     jobs:
-        - 'Build and Publish Docker JJB Image'
+        - 'Build and Deploy Docker JJB Image'
