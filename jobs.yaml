@@ -21,8 +21,10 @@
           url: https://github.com/rdpa/docker-jenkins-job-builder.git
           branches:
             - master
+    triggers:
+      - github
     builders:
-      - deploy:
+      - deploy
 
 - job:
     name: 'Canary Test'
