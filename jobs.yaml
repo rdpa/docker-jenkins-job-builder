@@ -16,8 +16,13 @@
     name: 'Build and Deploy Docker JJB Image'
     project-type: freestyle
     defaults: global
-    builders:
-      - deploy:
+    scm:
+	  - git:
+	      url: https://github.com/rdpa/docker-jenkins-job-builder.git
+	      branches:
+	        - master
+	builders:
+	  - deploy:
 
 - job:
     name: 'Canary Test'
