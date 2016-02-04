@@ -17,11 +17,9 @@
     project-type: freestyle
     defaults: global
     builders:
-      - builder:
+      - deploy:
 
 - job:
     name: 'Canary Test'
     project-type: freestyle
     defaults: global
-    builders:
-      - deploy:
