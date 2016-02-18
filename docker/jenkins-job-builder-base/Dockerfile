@@ -8,7 +8,6 @@ RUN apt-get update && apt-get install -y\
   git \
   curl \
   python-pip \
-  python-yaml \
-  git
+  python-yaml 
 
 RUN pip install jenkins-job-builder
