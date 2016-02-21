@@ -5,6 +5,8 @@ MAINTAINER Reed Palmer <reed.d.palmer@gmail.com>
 COPY plugins.txt /usr/share/jenkins/plugins.txt
 RUN /usr/local/bin/plugins.sh /usr/share/jenkins/plugins.txt
 
+USER root
+
 RUN apt-get update && apt-get install -y\
   python-setuptools \
   python-dev \
@@ -13,15 +15,17 @@ RUN apt-get update && apt-get install -y\
   curl \
   python-pip \
   python-yaml \
-  docker-engine 
+  docker
 
 
-# RUN pip install jenkins-job-builder
+RUN pip install jenkins-job-builder
 
-# RUN git clone https://github.com/rdpa/docker-jenkins-job-builder.git /jjb
+RUN git clone https://github.com/rdpa/docker-jenkins-job-builder.git /jjb
 
-# CMD while ! curl --output /dev/null --silent --head --fail http://jenkins:8080/; \
-#  do sleep 1; echo -n .; done \
-#  && jenkins-jobs --conf /jjb/jenkins_jobs.ini update /jjb
+CMD while ! curl --output /dev/null --silent --head --fail http://localhost:8080/; \
+  do sleep 1; echo -n .; done \
+  && jenkins-jobs --conf /jjb/jenkins_jobs.ini update /jjb
+
+USER jenkins
 
 # VOLUME /jjb
