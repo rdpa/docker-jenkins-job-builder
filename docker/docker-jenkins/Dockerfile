@@ -17,7 +17,6 @@ RUN apt-get update && apt-get install -y\
   python-yaml \
   docker
 
-
 RUN pip install jenkins-job-builder
 
 RUN git clone https://github.com/rdpa/docker-jenkins-job-builder.git /jjb
