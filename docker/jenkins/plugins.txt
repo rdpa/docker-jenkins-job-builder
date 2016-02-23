@@ -1,6 +1,7 @@
 authentication-tokens:latest
 build-pipeline-plugin:latest
 build-token-root:latest
+copyartifact:latest
 docker-commons:latest
 git:latest
 git-client:latest

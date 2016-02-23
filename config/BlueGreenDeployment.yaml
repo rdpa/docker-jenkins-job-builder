@@ -15,10 +15,4 @@
           project: CanaryDeployment
           which-build: last-successful
           filter: "**"
-      - shell: "#!/bin/bash -e
-
-cd production
-chmod -R 777 $(pwd)
-
-./blueGreenDeployment.sh
-./blueGreenDeployment.sh"
+      - shell: "#!/bin/bash -e \n\ncd production \nchmod -R 777 $(pwd)\n\n./blueGreenDeployment.sh\n./blueGreenDeployment.sh"
