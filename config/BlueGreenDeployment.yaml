@@ -1,0 +1,24 @@
+- project:
+    name: BlueGreenDeployment
+    jobs:
+      - BlueGreenDeployment
+
+- job:
+    name: BlueGreenDeployment
+    logrotate:
+      numToKeep: 5
+    parameters: 
+      - string:
+          name: Num
+    builders:
+      - copyartifact:
+          project: CanaryDeployment
+          which-build: last-successful
+          filter: **
+      - shell: "#!/bin/bash -e
+
+cd production
+chmod -R 777 $(pwd)
+
+./blueGreenDeployment.sh
+./blueGreenDeployment.sh"
