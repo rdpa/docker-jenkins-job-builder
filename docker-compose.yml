@@ -10,4 +10,5 @@ services:
     image: rdpa/jenkins-job-builder
     build: docker/jenkins-job-builder/.
     container_name: jenkins-job-builder
-    links: jenkins
+    links:
+      - jenkins
