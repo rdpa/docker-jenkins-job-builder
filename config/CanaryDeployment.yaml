@@ -1,0 +1,44 @@
+- project:
+    name: CanaryDeployment
+    jobs:
+      - CanaryDeployment
+
+- job:
+    name: CanaryDeployment
+    logrotate:
+      numToKeep: 5
+    properties:
+      - copyartifact:
+          projects: BlueGreenDeployment
+    parameters: 
+      - string:
+          name: Num
+    builders:
+      - copyartifact:
+          project: DeployCI
+          which-build: last-successful
+          filter: "**"
+      - shell: "
+#!/bin/bash -e\n
+\n
+chmod -R 777 $(pwd)\n
+echo \"--------------------------------------\"\n
+echo \"| Deploying to Production environment |\"\n
+echo \"--------------------------------------\"\n
+\n
+\n
+echo \"--------------------------------------\"\n
+echo \"|        Updating API Gateway        |\"\n
+echo \"--------------------------------------\"\n
+\n
+#source api_gateway/update_camp_prod_api.sh\n
+\n
+cd production\n
+ls\n
+\n
+# Register the new task defintion\n
+./registerTask.sh\n
+\n
+# Update the Service to the Registered task\n
+./updateService.sh
+"
