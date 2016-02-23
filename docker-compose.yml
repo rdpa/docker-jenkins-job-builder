@@ -1,0 +1,13 @@
+version: '2'
+services:
+  jenkins:
+    image: rdpa/jenkins
+    build: docker/jenkins/.
+    container_name: jenkins
+    ports:
+     - "8080:8080"
+  jenkins-job-builder:
+    image: rdpa/jenkins-job-builder
+    build: docker/jenkins-job-builder/.
+    container_name: jenkins-job-builder
+    links: jenkins
