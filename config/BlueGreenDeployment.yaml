@@ -14,7 +14,7 @@
       - copyartifact:
           project: CanaryDeployment
           which-build: last-successful
-          filter: **
+          filter: "**"
       - shell: "#!/bin/bash -e
 
 cd production
